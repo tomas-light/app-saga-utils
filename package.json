@@ -1,0 +1,36 @@
+{
+  "name": "app-saga-utils",
+  "version": "0.9.0",
+  "description": "Helpful utils for redux-saga",
+  "contributors": [
+    {
+      "name": "Artem Ignatev",
+      "email": "art.ser.ignatiev@gmail.com"
+    }
+  ],
+  "author": "TomasLight",
+  "license": "MIT",
+  "scripts": {
+    "prepublishOnly": "npm run lint",
+    "build": "tsc",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "app-redux-utils": "1.1.1",
+    "redux-saga": "1.1.3"
+  },
+  "devDependencies": {
+    "tslint": "6.1.2",
+    "tslint-eslint-rules": "5.4.0",
+    "typescript": "3.9.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TomasLight/app-redux-utils"
+  }
+}
