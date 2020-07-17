@@ -3,7 +3,7 @@ import { SagaMiddleware } from "redux-saga";
 import { WatchFunction } from "./WatchFunction";
 import { IWatcher } from "./IWatcher";
 
-export abstract class RootSagaBase {
+export abstract class RootSaga {
     protected watchFunctions: WatchFunction[];
 
     protected addWatchers(baseWatchers: IWatcher[]) {

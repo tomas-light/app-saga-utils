@@ -1,4 +1,4 @@
 export * from "./IWatcher";
-export * from "./RootSagaBase";
-export * from "./WatcherBase";
+export * from "./RootSaga";
+export * from "./Watcher";
 export * from "./WatchFunction";

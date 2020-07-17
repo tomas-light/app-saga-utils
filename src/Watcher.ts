@@ -4,7 +4,7 @@ import { AppAction } from "app-redux-utils";
 import { IWatcher } from "./IWatcher";
 import { WatchFunction } from "./WatchFunction";
 
-export abstract class WatcherBase implements IWatcher {
+export abstract class Watcher implements IWatcher {
     watchFunctions: WatchFunction[];
 
     protected constructor() {
