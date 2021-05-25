@@ -1,4 +1,7 @@
-export * from "./IWatcher";
-export * from "./RootSaga";
-export * from "./Watcher";
-export * from "./WatchFunction";
+export {
+  DependencyResolver,
+  Watcher,
+  WatchFunction,
+} from './types';
+export * from './RootSagaBase';
+export * from './WatcherBase';

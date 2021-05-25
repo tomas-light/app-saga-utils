@@ -1,4 +1,5 @@
 # Installation
+
 ```bush
 npm install app-saga-utils
 ```
@@ -7,38 +8,43 @@ npm install app-saga-utils
 
 ```ts
 // User.watcher.ts
-import { Watcher } from "app-saga-utils";
+import { WatcherBase } from 'app-saga-utils';
 
-import { UserActions } from "../redux";
-import { UserSaga } from "./User.saga";
+import { UserActions } from '../redux';
+import { UserSaga } from './User.saga';
 
-export class UserWatcher extends Watcher {
-    constructor() {
-        super();
+export class UserWatcher extends WatcherBase<UserSaga> {
+  constructor() {
+    super(UserSaga);
 
-        this.watchLatest(
-            UserActions.SET_USER,
-            UserSaga.setUser
-        );
-    }
+    this.watchLatest(
+      UserActions.SET_USER,
+      'setUser'
+    );
+  }
 }
+
+// or
+
+export const userWatcher = sagaWatcher(UserSaga);
+watcher.watchLatest(UserActions.SET_USER, 'setUser');
 ```
 
 ```ts
 // RootSagaBase.ts
-import { RootSaga } from "app-saga-utils";
+import { RootSagaBase } from 'app-saga-utils';
 
-import { UserWatcher } from "./User.watcher";
+import { UserWatcher } from './User.watcher';
 
-export class RootSagaBase extends RootSaga {
-    constructor() {
-        super();
+export class RootSaga extends RootSagaBase {
+  constructor() {
+    super();
 
-        this.addWatchers([
-            new UserWatcher(),
-        ]);
-    }
+    this.addWatchers([
+      new UserWatcher(),
+    ]);
+  }
 }
 ```
 
-and  register your saga like usually `new RootSagaBase().run(sagaMiddleware);`
+and register your saga like usually `new RootSagaBase().run(sagaMiddleware);`
